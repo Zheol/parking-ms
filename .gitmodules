@@ -1,0 +1,6 @@
+[submodule "gateway"]
+	path = gateway
+	url = https://github.com/DiegoGMrn/Arquitectura-Backend-Gateway-Parking
+[submodule "ms-users"]
+	path = ms-users
+	url = https://github.com/Zheol/microservicio-parking-users
