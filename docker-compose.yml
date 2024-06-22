@@ -11,18 +11,30 @@ services:
     networks:
       - nest-grpc-network
 
+  zonas-ms:
+    build: ./ms-zonas
+    ports:
+      - "50052:50052"
+    volumes:
+      - ./ms-zonas/src:/usr/src/app/src
+    command: npm run start:dev
+    networks:
+      - nest-grpc-network
+
   client-gateway:
     build: ./gateway
     ports:
-      - 4000:4000
+      - "4000:4000"
     volumes:
       - ./gateway/src:/usr/src/app/src
     command: npm run start:dev
     environment:
       - GRPC_SERVER_URL=users-ms:8089
+      - ZONES_GRPC_SERVER_URL=zonas-ms:50052
       - PORT=4000
     depends_on:
       - users-ms
+      - zonas-ms
     networks:
       - nest-grpc-network
 

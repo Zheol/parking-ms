@@ -7,3 +7,9 @@
 [submodule "ms-zonas"]
 	path = ms-zonas
 	url = https://github.com/DiegoGMrn/Arquitectura-Backend-Zonas-Parking
+[submodule "ms-reservas"]
+	path = ms-reservas
+	url = https://github.com/DiegoGMrn/Arquitectura-Backend-Reservas-Parking
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/JuanNilo/Arquitectura-Frontend-Parking
