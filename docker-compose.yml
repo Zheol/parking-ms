@@ -21,6 +21,18 @@ services:
     networks:
       - nest-grpc-network
 
+  reservas-ms:
+    build: ./ms-reservas
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./ms-reservas/src:/usr/src/app/src
+    command: npm run start:dev
+    environment:
+      - ZONES_GRPC_SERVER_URL=zonas-ms:50052
+    networks:
+      - nest-grpc-network
+
   client-gateway:
     build: ./gateway
     ports:
@@ -31,10 +43,12 @@ services:
     environment:
       - GRPC_SERVER_URL=users-ms:8089
       - ZONES_GRPC_SERVER_URL=zonas-ms:50052
+      - BOOKINGS_GRPC_SERVER_URL=reservas-ms:50051
       - PORT=4000
     depends_on:
       - users-ms
       - zonas-ms
+      - reservas-ms
     networks:
       - nest-grpc-network
 
