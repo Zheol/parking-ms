@@ -58,10 +58,11 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend/src:/usr/src/app/src
-    command: npm run start:dev
+    command: npm run dev
     environment:
       - GATEWAY_GRPC_SERVER_URL=client-gateway:4000
-    depends_on: -client-gateway
+    depends_on:
+      - client-gateway
     networks:
       - nest-grpc-network
 
