@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: grpc-gateway
+  name: grpc-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-gateway
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: grpc-gateway
+    spec:
+      containers:
+        - image: parking-ms-client-gateway:latest
+          name: parking-ms-client-gateway
+          imagePullPolicy: Never
+          command: ["npm"]
+          args: ["run", "start:dev"]
+          env:
+            - name: PORT
+              value: "4000"
+            - name: GRPC_SERVER_URL
+              value: "grpc-users:8089"
+            - name: ZONES_GRPC_SERVER_URL
+              value: "grpc-zonas:50052"
+            - name: BOOKINGS_GRPC_SERVER_URL
+              value: "grpc-reservas:50051"
+          resources: {}
+status: {}

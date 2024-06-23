@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: grpc-zonas
+  name: grpc-zonas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-zonas
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: grpc-zonas
+    spec:
+      containers:
+        - image: parking-ms-zonas-ms:latest
+          name: parking-ms-zonas-ms
+          imagePullPolicy: Never
+          command: ["npm"]
+          args: ["run", "start:dev"]
+          resources: {}
+status: {}

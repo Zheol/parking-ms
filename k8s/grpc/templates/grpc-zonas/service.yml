@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: grpc-zonas
+  name: grpc-zonas
+spec:
+  ports:
+    - name: "50052"
+      port: 50052
+      protocol: TCP
+      targetPort: 50052
+  selector:
+    app: grpc-zonas
+  type: ClusterIP
+status:
+  loadBalancer: {}

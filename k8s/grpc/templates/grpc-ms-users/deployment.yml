@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: grpc-users
+  name: grpc-users
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-users
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: grpc-users
+    spec:
+      containers:
+        - image: parking-ms-users-ms:latest
+          name: parking-ms-users-ms
+          imagePullPolicy: Never
+          command: ["go"]
+          args: ["run", "main.go"]
+          resources: {}
+status: {}

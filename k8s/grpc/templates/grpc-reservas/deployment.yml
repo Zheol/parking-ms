@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: grpc-reservas
+  name: grpc-reservas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-reservas
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: grpc-reservas
+    spec:
+      containers:
+        - image: parking-ms-reservas-ms:latest
+          name: parking-ms-reservas-ms
+          imagePullPolicy: Never
+          command: ["npm"]
+          args: ["run", "start:dev"]
+          env:
+            - name: ZONES_GRPC_SERVER_URL
+              value: "grpc-zonas:50052"
+          resources: {}
+status: {}
