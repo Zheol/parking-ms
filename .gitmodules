@@ -6,7 +6,7 @@
 	url = https://github.com/Zheol/microservicio-parking-users
 [submodule "ms-zonas"]
 	path = ms-zonas
-	url = https://github.com/DiegoGMrn/Arquitectura-Backend-Zonas-Parking
+	url = https://github.com/DiegoGMrn/Arquitectura-Backend-Zonas-Parking.git
 [submodule "ms-reservas"]
 	path = ms-reservas
 	url = https://github.com/DiegoGMrn/Arquitectura-Backend-Reservas-Parking
