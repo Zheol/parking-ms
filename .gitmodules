@@ -13,3 +13,6 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/JuanNilo/Arquitectura-Frontend-Parking
+[submodule "ms-notifications"]
+	path = ms-notifications
+	url = https://github.com/CristopherA27/Notifications-Parking
