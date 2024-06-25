@@ -30,6 +30,18 @@ services:
     command: npm run start:dev
     environment:
       - ZONES_GRPC_SERVER_URL=zonas-ms:50052
+      - NOTIFICATIONS_GRPC_SERVER_URL=notifications-ms:50054
+      - GRPC_SERVER_URL=users-ms:8089
+    networks:
+      - nest-grpc-network
+
+  notification-ms:
+    build: ./ms-notifications
+    ports:
+      - "50054:50054"
+    volumes:
+      - ./ms-notifications/src:/usr/src/app/src
+    command: npm run start:dev
     networks:
       - nest-grpc-network
 

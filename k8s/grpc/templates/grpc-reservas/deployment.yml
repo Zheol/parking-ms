@@ -26,5 +26,9 @@ spec:
           env:
             - name: ZONES_GRPC_SERVER_URL
               value: "grpc-zonas:50052"
+            - name: NOTIFICATIONS_GRPC_SERVER_URL
+              value: "grpc-notifications:50054"
+            - name: GRPC_SERVER_URL
+              value: "grpc-users:8089"
           resources: {}
 status: {}

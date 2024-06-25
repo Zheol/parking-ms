@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: grpc-notifications
+  name: grpc-notifications
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-notifications
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: grpc-notifications
+    spec:
+      containers:
+        - image: parking-ms-notification-ms:latest
+          name: parking-ms-notification-ms
+          imagePullPolicy: Never
+          command: ["npm"]
+          args: ["run", "start:dev"]
+          resources: {}
+status: {}
